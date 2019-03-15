@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import AppBar from "./AppBar.js";
+import SignIn from "./SignIn.js";
+import SignUp from "./SignUp.js";
+import Home from "./home.js";
+import Typography from "@material-ui/core/Typography";
+import ProtectedRoute from "./ProtectedRoute.js";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-class App extends Component {
+import "./styles.css";
+
+class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <AppBar />
+
+      <Switch>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/login" component={SignIn}/>
+          <ProtectedRoute path="/home" component={Home}/>
+          <Route exact path="/" render={() => <Redirect to="/home"/>}/>
+      </Switch>
       </div>
     );
   }

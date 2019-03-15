@@ -1,0 +1,19 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  margin: 0px;
+  background-image: url("embg.jpg");
+  color: white;
+}
+.appbar {
+  text-align: "center";
+}
+.typo {
+  padding: 10px 10px 10px 10px;
+}
+.apptag {
+
+}
