@@ -14,6 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { withContext } from "./AppContext";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const styles = theme => ({
   main: {
@@ -36,7 +37,8 @@ const styles = theme => ({
       .spacing.unit * 3}px`
   },
   typo: {
-    marginTop: theme.spacing.unit * 5,
+    marginTop: theme.spacing.unit * 10,
+    textAlign: "center"
   },
   avatar: {
     margin: theme.spacing.unit,
@@ -72,7 +74,7 @@ class SignIn extends React.Component {
           }
       render () {
         const { classes } = this.props;
-        return (
+        return !this.props.token ? (
           <div>
           <Typography className={classes.typo} component="h1" variant="h5" color="primary">
             <span>A one stop shop for all your Event Management needs ! </span>
@@ -122,7 +124,7 @@ class SignIn extends React.Component {
             </Paper>
           </main>
           </div>
-        );
+        ) : <Redirect to="/home" />
       }
 }
 

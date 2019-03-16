@@ -7,7 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import pink from "@material-ui/core/colors/pink";
 import indigo from "@material-ui/core/colors/indigo";
+import deepPurple from "@material-ui/core/colors/deepPurple";
 import { withContext } from "./AppContext";
+import Button from "@material-ui/core/Button";
 
 const styles = {
   root: {
@@ -17,18 +19,18 @@ const styles = {
 const theme = createMuiTheme({
   palette: {
     primary: pink,
-    secondary: indigo
+    secondary: deepPurple
   }
 });
-const SignOutBtn = ({ user, token, onSignOut }) => {
+const SignOutBtn = ({token, logout}) => {
   // This is a dumb "stateless" component
   return token ? (
-    <div Style="display: inline-block; padding: 0px 10px 0px 10px;">
-      <button className="btn waves-effect waves-light pink lighten-4">
-        <span href="javascript:;" onClick={onSignOut}>
+    <div className="buttonnavbar" >
+      <Button variant="contained" color="secondary">
+        <span href="javascript:;" onClick={logout}>
           Sign out
         </span>
-      </button>
+      </Button>
     </div>
   ) : null;
 };
@@ -38,11 +40,15 @@ function SimpleAppBar(props) {
   return (
     <div className={classes.root}>
       <MuiThemeProvider theme={theme}>
-        <AppBar position="static" className="typo">
-          <Typography variant="h4" color="inherit">
-            <span className="appbar">Event Manager</span>
-          </Typography>
-
+        <AppBar>
+          <div className="flexbox">
+          <div className="typonav" color="inherit">
+            <span >Event Manager</span>
+          </div>
+          <SignOutBtn
+           token = {props.token}
+           logout = {props.logout}
+          /></div>
         </AppBar>
       </MuiThemeProvider>
     </div>

@@ -28,7 +28,7 @@ const styles = theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing.unit * 8,
+    marginTop: theme.spacing.unit * 20,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -47,8 +47,8 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3
   },
   usertypo: {
-
-    width: "100px"
+    width: "100%",
+    wordBreak: "break-all"
   }
 });
 

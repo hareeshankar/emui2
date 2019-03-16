@@ -1,6 +1,5 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
 }
 
 body {
@@ -11,9 +10,24 @@ body {
 .appbar {
   text-align: "center";
 }
-.typo {
+.typonav {
   padding: 10px 10px 10px 10px;
+  width: auto;
+  font-size: 40px;
 }
-.apptag {
-
+.buttonnavbar {
+  position:fixed;
+    right:10px;
+    top:15px;
+}
+.toolbar: {
+  display: flex;
+  align-items: center;
+}
+.flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+    text-align: center;
+     justify-content: center;
+      align-items: center;
 }
